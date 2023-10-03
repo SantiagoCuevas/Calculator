@@ -1,0 +1,45 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#calculator {
+  border: solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+#display {
+  border: 3px solid black;
+  background-color: gray;
+  margin: 30px;
+  padding: 10px;
+  text-align: end;
+}
+h1 {
+  color: black;
+  font-size: 35px;
+}
+
+#buttons {
+  border: solid red;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 25px 25px 25px;
+  gap: 5px;
+}
+
+.button-rows {
+  display: flex;
+  gap: 7px;
+}
+
+button {
+  display: flex;
+  padding: 25px;
+  font-size: 24px;
+}

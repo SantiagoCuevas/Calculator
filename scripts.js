@@ -18,4 +18,4 @@ let firstNum = "";
 let operator = "";
 let secondNum = "";
 
-const operate = operator(firstNum, secondNum);
+// const operate = operator(firstNum, secondNum);
