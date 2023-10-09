@@ -1,26 +1,11 @@
-const zeroBtn = document.querySelector(".zero");
-const oneBtn = document.querySelector(".one");
-const twoBtn = document.querySelector(".two");
-const threeBtn = document.querySelector(".three");
-const fourBtn = document.querySelector(".four");
-const fiveBtn = document.querySelector(".five");
-const sixBtn = document.querySelector(".six");
-const sevenBtn = document.querySelector(".seven");
-const eightBtn = document.querySelector(".eight");
-const nineBtn = document.querySelector(".nine");
+const numBtns = document.querySelectorAll(".num");
+const opBtns = document.querySelectorAll(".op");
 
-const clearBtn = document.querySelector("clear");
-const equalsBtn = document.querySelector(".equals");
-const addBtn = document.querySelector(".add");
-const subractBtn = document.querySelector(".subtract");
-const multiplyBtn = document.querySelector(".multiply");
-const divideBtn = document.querySelector(".divide");
+const calcDisplay = document.querySelector(".bottom");
 
-const calcDisplay = document.getElementById("#display");
-
-let firstNum = undefined;
-let operator = undefined;
-let secondNum = undefined;
+let firstNum = "";
+let operator = "";
+let secondNum = "";
 
 function operate() {
   return operator(firstNum, secondNum);
@@ -40,4 +25,19 @@ function multiply(a, b) {
 
 function divide(a, b) {
   return a / b;
+}
+
+numBtns.forEach((button) =>
+  button.addEventListener("click", () => appendNum(button.textContent))
+);
+
+function appendNum(number) {
+  if (calcDisplay.textContent === "0") {
+    resetScreen();
+  }
+  calcDisplay.textContent += number;
+}
+
+function resetScreen() {
+  calcDisplay.textContent = "";
 }
