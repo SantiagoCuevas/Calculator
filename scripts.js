@@ -7,7 +7,6 @@ const calcDisplay = document.querySelector(".bottom");
 let firstNum = "";
 let secondNum = "";
 let operator = null;
-let answer = "";
 
 const evaluate = {
   "÷": function (a, b) {
@@ -37,9 +36,8 @@ clearBtn.addEventListener("click", resetScreen);
 equalBtn.addEventListener("click", operate);
 
 function operate() {
-  answer = evaluate[operator](firstNum, secondNum);
-  calcDisplay.textContent = answer;
-  firstNum = answer;
+  calcDisplay.textContent = evaluate[operator](firstNum, secondNum);
+  firstNum = evaluate[operator](firstNum, secondNum);
   secondNum = "";
   operator = null;
 }
@@ -50,6 +48,11 @@ function appendNum(num) {
 }
 
 function appendOp(op) {
+  if (op && secondNum) {
+    firstNum = evaluate[operator](firstNum, secondNum);
+    secondNum = "";
+  }
+
   operator = op;
   calcDisplay.textContent += " " + operator + " ";
 }
