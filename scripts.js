@@ -38,7 +38,13 @@ equalBtn.addEventListener("click", operate);
 
 function operate() {
   answer = evaluate[operator](firstNum, secondNum);
-  calcDisplay.textContent = answer;
+
+  if (!Number.isInteger(answer)) {
+    calcDisplay.textContent = answer.toFixed(2);
+  } else {
+    calcDisplay.textContent = answer;
+  }
+
   firstNum = answer;
   secondNum = "";
   operator = null;
