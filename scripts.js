@@ -7,6 +7,7 @@ const calcDisplay = document.querySelector(".bottom");
 let firstNum = "";
 let secondNum = "";
 let operator = null;
+let answer = "";
 
 const evaluate = {
   "÷": function (a, b) {
@@ -36,13 +37,19 @@ clearBtn.addEventListener("click", resetScreen);
 equalBtn.addEventListener("click", operate);
 
 function operate() {
-  calcDisplay.textContent = evaluate[operator](firstNum, secondNum);
-  firstNum = evaluate[operator](firstNum, secondNum);
+  answer = evaluate[operator](firstNum, secondNum);
+  calcDisplay.textContent = answer;
+  firstNum = answer;
   secondNum = "";
   operator = null;
+  answer = "";
 }
 
 function appendNum(num) {
+  if (answer) {
+    resetValues();
+    resetScreen();
+  }
   operator === null ? (firstNum += num) : (secondNum += num);
   calcDisplay.textContent += num;
 }
@@ -66,4 +73,5 @@ function resetValues() {
   firstNum = "";
   secondNum = "";
   operator = null;
+  answer = "";
 }
