@@ -37,6 +37,8 @@ clearBtn.addEventListener("click", resetScreen);
 equalBtn.addEventListener("click", operate);
 
 function operate() {
+  if (!secondNum) return;
+
   answer = evaluate[operator](firstNum, secondNum);
 
   if (!Number.isInteger(answer)) {
