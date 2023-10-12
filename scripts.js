@@ -42,14 +42,14 @@ function operate() {
   firstNum = answer;
   secondNum = "";
   operator = null;
-  answer = "";
 }
 
 function appendNum(num) {
-  if (answer) {
+  if (answer && !operator) {
     resetValues();
     resetScreen();
   }
+
   operator === null ? (firstNum += num) : (secondNum += num);
   calcDisplay.textContent += num;
 }
