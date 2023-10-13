@@ -37,7 +37,12 @@ clearBtn.addEventListener("click", resetScreen);
 equalBtn.addEventListener("click", operate);
 
 function operate() {
-  if (!secondNum) return;
+  if (!secondNum) {
+    return;
+  } else if (secondNum === "0" && operator === "÷") {
+    calcDisplay.textContent = "ERROR";
+    return;
+  }
 
   answer = evaluate[operator](firstNum, secondNum);
 
