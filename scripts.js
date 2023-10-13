@@ -68,8 +68,10 @@ function appendNum(num) {
 }
 
 function appendOp(op) {
-  if (op && secondNum) {
-    firstNum = evaluate[operator](firstNum, secondNum);
+  if (!firstNum || (operator && !secondNum)) return;
+  if (operator && secondNum) {
+    answer = evaluate[operator](firstNum, secondNum);
+    firstNum = answer;
     secondNum = "";
   }
 
