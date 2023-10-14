@@ -1,7 +1,9 @@
+const clearBtn = document.querySelector(".clear");
+const deleteBtn = document.querySelector(".delete");
 const numBtns = document.querySelectorAll(".num");
 const opBtns = document.querySelectorAll(".op");
+const pointBtn = document.querySelector(".point");
 const equalBtn = document.querySelector(".equals");
-const clearBtn = document.querySelector(".clear");
 const calcDisplay = document.querySelector(".bottom");
 
 let firstNum = "";
@@ -32,7 +34,11 @@ opBtns.forEach((operator) =>
   operator.addEventListener("click", () => appendOp(operator.textContent))
 );
 
+pointBtn.addEventListener("click", () => appendPoint(pointBtn.textContent));
+
 clearBtn.addEventListener("click", resetScreen);
+
+// deleteBtn.addEventListener("click");
 
 equalBtn.addEventListener("click", operate);
 
@@ -77,6 +83,23 @@ function appendOp(op) {
 
   operator = op;
   calcDisplay.textContent += " " + operator + " ";
+}
+
+function appendPoint(point) {
+  if (answer && !operator) {
+    resetValues();
+    resetScreen();
+  }
+
+  answer;
+
+  if (firstNum.toString().includes(".") && operator === null) {
+    return;
+  } else if (secondNum.includes(".")) {
+    return;
+  }
+  operator === null ? (firstNum += point) : (secondNum += point);
+  calcDisplay.textContent += point;
 }
 
 function resetScreen() {
