@@ -38,7 +38,7 @@ pointBtn.addEventListener("click", () => appendPoint(pointBtn.textContent));
 
 clearBtn.addEventListener("click", resetScreen);
 
-// deleteBtn.addEventListener("click");
+deleteBtn.addEventListener("click", backspace);
 
 equalBtn.addEventListener("click", operate);
 
@@ -100,6 +100,18 @@ function appendPoint(point) {
   }
   operator === null ? (firstNum += point) : (secondNum += point);
   calcDisplay.textContent += point;
+}
+
+function backspace() {
+  if (answer && !secondNum) {
+    return;
+  } else if (operator) {
+    secondNum = secondNum.slice(0, -1);
+    calcDisplay.textContent = firstNum + " " + operator + " " + secondNum;
+  } else {
+    firstNum = firstNum.slice(0, -1);
+    calcDisplay.textContent = firstNum;
+  }
 }
 
 function resetScreen() {
