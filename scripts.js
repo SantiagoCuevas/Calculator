@@ -26,6 +26,8 @@ const evaluate = {
   },
 };
 
+window.addEventListener("keydown", handleKeyInput);
+
 numBtns.forEach((button) =>
   button.addEventListener("click", () => appendNum(button.textContent))
 );
@@ -124,4 +126,28 @@ function resetValues() {
   secondNum = "";
   operator = null;
   answer = "";
+}
+
+function handleKeyInput(e) {
+  if (e.key >= 0 && e.key <= 9) appendNum(e.key);
+  if (e.key === ".") appendPoint(pointBtn.textContent);
+  if (e.key === "/" || e.key === "*" || e.key === "-" || e.key === "+")
+    appendOp(convertOp(e.key));
+  if (e.key === "Enter" || e.key === "=") operate();
+  if (e.key === "Backspace") backspace();
+  if (e.key === "Escape") resetScreen();
+}
+
+function convertOp(handleKeyInput) {
+  if (handleKeyInput === "/") {
+    return "÷";
+  } else if (handleKeyInput === "*") {
+    return "×";
+  } else if (handleKeyInput === "*") {
+    return "×";
+  } else if (handleKeyInput === "-") {
+    return "−";
+  } else if (handleKeyInput === "+") {
+    return "+";
+  }
 }
