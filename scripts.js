@@ -4,7 +4,7 @@ const numBtns = document.querySelectorAll(".num");
 const opBtns = document.querySelectorAll(".op");
 const pointBtn = document.querySelector(".point");
 const equalBtn = document.querySelector(".equals");
-const calcDisplay = document.querySelector(".bottom");
+const calcDisplay = document.querySelector(".text-display");
 
 let firstNum = "";
 let secondNum = "";
